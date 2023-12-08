@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Figtree } from "next/font/google";
-
+import "./globals.css";
 import SupabaseProvider from "@/providers/SupabaseProvider";
 import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
