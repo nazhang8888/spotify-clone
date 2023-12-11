@@ -1,24 +1,26 @@
 "use client";
 
-import { Song } from "@/types";
+import useSound from "use-sound";
 import React, { useEffect, useState } from "react";
-import MediaItem from "./MediaItems";
-import LikeButton from "./LikeButton";
-
 import { BsPauseFill, BsPlayFill } from "react-icons/bs";
 import { AiFillStepBackward, AiFillStepForward } from "react-icons/ai";
 import { HiSpeakerXMark, HiSpeakerWave } from "react-icons/hi2";
-import Slider from "./Slider";
+
+import { Song } from "@/types";
 import usePlayer from "@/hooks/usePlayer";
-import useSound from "use-sound";
+
+import LikeButton from "./LikeButton";
+import MediaItem from "./MediaItems";
+import Slider from "./Slider";
 
 interface PlayerContentProps {
   song: Song;
   songUrl: string;
 }
+
 const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
   const player = usePlayer();
-  const [volume, setVolume] = useState(1);
+  const [volume, setVolume] = useState(0.25);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const Icon = isPlaying ? BsPauseFill : BsPlayFill;
@@ -216,6 +218,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
             size={34}
             className="cursor-pointer"
           />
+
           <Slider value={volume} onChange={(value) => setVolume(value)} />
         </div>
       </div>
