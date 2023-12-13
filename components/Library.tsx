@@ -29,7 +29,7 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
     if (!user) {
       return authModal.onOpen();
     }
-    //TODO check for subscription
+
     if (!subscription) {
       return subscribeModal.onOpen();
     }
