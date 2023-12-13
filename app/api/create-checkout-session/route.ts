@@ -36,6 +36,7 @@ export async function POST(request: Request) {
       mode: "subscription",
       allow_promotion_codes: true,
       subscription_data: {
+        // stripe api has changed, find alternative if necessary
         // trial_from_plan: true,
         metadata,
       },
